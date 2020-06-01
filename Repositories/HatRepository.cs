@@ -50,10 +50,10 @@ namespace TheHat.Repositories
 			return hat.GetWords();
 		}
 
-		public string GetRandomWord(string hatName)
+		public string GetRandomWord(string userName, string hatName)
 		{
 			var hat = GetHat(hatName);
-			return hat.GetWord();
+			return hat.GetWord(userName);
 		}
 
 		public string GuessedWord(string hatName)

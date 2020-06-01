@@ -77,9 +77,9 @@ namespace TheHat.Controllers
 
         [HttpGet]
         [Route("GetRandomWord")]
-        public IActionResult GetRandomWord(string hatName)
+        public IActionResult GetRandomWord(string userName, string hatName)
         {
-            var word = _hatRepository.GetRandomWord(hatName);
+            var word = _hatRepository.GetRandomWord(userName, hatName);
             return Ok(word);
         }
 

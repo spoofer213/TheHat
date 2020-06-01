@@ -16,7 +16,7 @@ namespace TheHat.Repositories.Interfaces
 		void AddWords(string hatName, string words);
 		List<string> GetHatWords(string hatName);
 		string GuessedWord(string hatName);
-		string GetRandomWord(string hatName);
+		string GetRandomWord(string userName, string hatName);
 		void ResetHatWords(string hatName);
 	}
 }

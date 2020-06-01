@@ -45,13 +45,14 @@ namespace TheHat.Models
 			return Words;
 		}
 
-		public string GetWord()
+		public string GetWord(string userName)
 		{
 			var count = Words.Count;
 			if (count > 0)
 			{
 				var random = new Random();
 				ActiveWord = Words[random.Next(count - 1)];
+				ActiveUser = Users.FirstOrDefault(x => x.Name.Equals(userName));
 				return ActiveWord;
 			}
 			ActiveWord = null;
@@ -63,19 +64,19 @@ namespace TheHat.Models
 			Words.Remove(ActiveWord);
 			if(!string.IsNullOrWhiteSpace(ActiveWord))
 				GuessedWords.Add(ActiveWord);
-			return GetWord();
+			return GetWord(ActiveUser.Name);
 		}
 
 		public string SkipActiveWord()
 		{
-			return GetWord();
+			return GetWord(ActiveUser.Name);
 		}
 
 		public void ResetWords()
 		{
 			Words.AddRange(GuessedWords);
 			GuessedWords.Clear();
-		}		
+		}
 
 		private void CheckUser(string userName)
 		{
