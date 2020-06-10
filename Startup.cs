@@ -58,7 +58,7 @@ namespace TheHat
 				c.RoutePrefix = string.Empty;
 			});
 
-			app.UseCors(builder => builder.AllowAnyOrigin());
+			app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 			app.UseEndpoints(endpoints =>
 			{

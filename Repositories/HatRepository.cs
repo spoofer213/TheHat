@@ -12,6 +12,8 @@ namespace TheHat.Repositories
 		private List<Hat> hats = new List<Hat>();
 		public Hat CreateHat(string hatName)
 		{
+			if (hats.FirstOrDefault(x => x.Name == hatName) != null)
+				throw new Exception("Такая игра уже существует");
 			var hat = new Hat(hatName);
 			hats.Add(hat);
 			return hat;

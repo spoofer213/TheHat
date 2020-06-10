@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace TheHat.Handlers
 		{
 			var result = new ErrorResponse() { ErrorMessage = context.Exception.Message };
 			context.Result = new JsonResult(result);
+			context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
 			return base.OnExceptionAsync(context);
 		}
 	}

@@ -1,4 +1,4 @@
-# thehat-frontend
+# thehat-vue
 
 ## Project setup
 ```

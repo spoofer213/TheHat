@@ -27,6 +27,8 @@ namespace TheHat.Controllers
         [Route("CreateHat")]
         public IActionResult CreateHat(string hatName)
         {
+            if (string.IsNullOrWhiteSpace(hatName))
+                return BadRequest();
             var createdHat = _hatRepository.CreateHat(hatName);
             return Ok(createdHat);
         }
